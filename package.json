@@ -14,16 +14,19 @@
     "@types/cross-spawn": "^6.0.1",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.11.0",
+    "@types/rimraf": "^3.0.0",
     "jest": "^25.2.7",
+    "rimraf": "^3.0.2",
     "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "caller": "^1.0.1",
-    "cross-spawn": "^7.0.2"
+    "cross-spawn": "^7.0.2",
+    "slash": "^3.0.0"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc --project tsconfig.compile.json",
+    "build": "rimraf dist && tsc --project tsconfig.compile.json",
     "test": "jest",
     "prepack": "yarn build && yarn test"
   },

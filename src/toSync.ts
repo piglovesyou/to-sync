@@ -1,4 +1,5 @@
 import crossSpawn from 'cross-spawn';
+import slash from 'slash'
 // Fork version of do-sync that runs a function within the entire .js file
 import caller from 'caller';
 import { SpawnSyncOptions } from 'child_process';
@@ -17,12 +18,12 @@ interface Response {
 
 export type Value = JSONValue;
 
-const gen = (moduleFullPath: string, fnName: string, input: Value[]) => {
+const gen = (filename: string, fnName: string, args: Value[]) => {
   return `
 async function main() {
-  const fn = require('${moduleFullPath}')['${fnName}'];
-  if (!fn) throw new Error('${fnName} is not exported in ${moduleFullPath}');
-  return fn(...${JSON.stringify(input)})
+  const fn = require('${slash(filename)}')['${fnName}'];
+  if (!fn) throw new Error('${fnName} is not exported in ${filename}');
+  return fn(...${JSON.stringify(args)})
 }
 main().then(value => console.log(JSON.stringify({ type: "success", value: value })))
 .catch(e => console.log(JSON.stringify({ type: "failure", value: e })));
