@@ -20,7 +20,6 @@ export type Value = JSONValue;
 const gen = (moduleFullPath: string, fnName: string, input: Value[]) => {
   return `
 async function main() {
-debugger
   const fn = require('${moduleFullPath}')['${fnName}'];
   if (!fn) throw new Error('${fnName} is not exported in ${moduleFullPath}');
   fn(...${JSON.stringify(input)})

@@ -1,5 +1,5 @@
 {
-  "name": "to-sync",
+  "name": "@piglovesyou/to-sync",
   "version": "0.1.0",
   "description": "synchronously execute asynchronous functions",
   "repository": "https://github.com/piglovesyou/to-sync",
@@ -25,9 +25,8 @@
     "cross-spawn": "^7.0.2"
   },
   "scripts": {
-    "build": "tsc",
-    "prepack": "yarn test --collectCoverage && yarn tsc",
-    "test": "jest"
+    "build": "rm -rf dist && tsc --project tsconfig.compile.json",
+    "prepack": "yarn build"
   },
   "keywords": [
     "node",
