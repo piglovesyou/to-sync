@@ -1,11 +1,11 @@
-to-sync
+to-sync [![Node CI](https://github.com/piglovesyou/to-sync/actions/workflows/nodejs.yml/badge.svg)](https://github.com/piglovesyou/to-sync/actions/workflows/nodejs.yml)
 ========
 
 A forked version of [do-sync](https://github.com/Zemnmez/do-sync), also for babel-plugin-macros developers.
 
 ```bash
-$ npm install to-sync
-$ yarn add to-sync
+$ npm install @piglovesyou/to-sync
+$ yarn add @piglovesyou/to-sync
 ```
 
 ##### Features
@@ -14,11 +14,13 @@ $ yarn add to-sync
 * Typings for a generated sync function without generics parameters  
 
 ```typescript
+import toSync from '@piglovesyou/to-sync'
+
 export async function myAsyncFunc(a: string): Promise<string> {
   // ...
 }
 
-// Typed as `(a: string) => string`
+// Typed as `string => string` 😎
 export const mySyncFunction = toSync(myAsyncFunc);
 ```
 
@@ -26,10 +28,7 @@ export const mySyncFunction = toSync(myAsyncFunc);
 
 * Export your async function. Otherwise the child process cannot find it.
 * Call `toSync` next to your async function. If you can't, pass `{ filename }` option to it.
-
-##### TODO
-
--[ ] Tests
+* This is slow naturally, as it launches a new process and communicate through serialized data. Try to avoid using it.
 
 ---------------------------------------
 
