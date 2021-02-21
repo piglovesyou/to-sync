@@ -1,3 +1,38 @@
+to-sync
+========
+
+A forked version of [do-sync](https://github.com/Zemnmez/do-sync), also for babel-plugin-macros developers.
+
+```bash
+$ npm install to-sync
+$ yarn add to-sync
+```
+
+##### Features
+
+* Enable lexical scope in a target async function for more flexible use
+* Typings for a generated sync function without generics parameters  
+
+```typescript
+export async function myAsyncFunc(a: string): Promise<string> {
+  // ...
+}
+
+// Typed as `(a: string) => string`
+export const mySyncFunction = toSync(myAsyncFunc);
+```
+
+##### Caveats
+
+* Export your async function. Otherwise the child process cannot find it.
+* Call `toSync` next to your async function. If you can't, pass `{ filename }` option to it.
+
+##### TODO
+
+-[ ] Tests
+
+---------------------------------------
+
 do-sync
 ========
 

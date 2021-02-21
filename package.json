@@ -1,12 +1,16 @@
 {
-  "name": "do-sync",
-  "version": "3.0.2",
+  "name": "to-sync",
+  "version": "0.1.0",
   "description": "synchronously execute asynchronous functions",
-  "repository": "https://github.com/Zemnmez/do-sync",
+  "repository": "https://github.com/piglovesyou/to-sync",
   "main": "dist/index.js",
-  "author": "zemnmez",
+  "author": "piglovesyou",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
+    "@types/caller": "^1.0.0",
     "@types/cross-spawn": "^6.0.1",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.11.0",
@@ -17,6 +21,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "caller": "^1.0.1",
     "cross-spawn": "^7.0.2"
   },
   "scripts": {
