@@ -24,7 +24,8 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc --project tsconfig.compile.json",
-    "prepack": "yarn build"
+    "test": "jest",
+    "prepack": "yarn build && yarn test"
   },
   "keywords": [
     "node",

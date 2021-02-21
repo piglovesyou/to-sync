@@ -22,7 +22,7 @@ const gen = (moduleFullPath: string, fnName: string, input: Value[]) => {
 async function main() {
   const fn = require('${moduleFullPath}')['${fnName}'];
   if (!fn) throw new Error('${fnName} is not exported in ${moduleFullPath}');
-  fn(...${JSON.stringify(input)})
+  return fn(...${JSON.stringify(input)})
 }
 main().then(value => console.log(JSON.stringify({ type: "success", value: value })))
 .catch(e => console.log(JSON.stringify({ type: "failure", value: e })));
